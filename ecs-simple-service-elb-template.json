@@ -1,0 +1,22 @@
+{
+    "cluster": "__CLUSTER_NAME__",
+    "serviceName": "__SERVICE_NAME__",
+    "taskDefinition": "__TASK_DEF_ARN__",
+    "launchType": "FARGATE",
+    "desiredCount": 2,
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": ["__SUBNET_1__", "__SUBNET_2__"],
+            "securityGroups": ["__SECURITY_GROUP__"],
+            "assignPublicIp": "ENABLED"
+        }
+    },
+    "loadBalancers": [
+        {
+            "targetGroupArn": "__TG_ARN__",
+            "containerName": "sports-api-container",
+            "containerPort": 8080
+        }
+    ]
+    
+}

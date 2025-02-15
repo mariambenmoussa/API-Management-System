@@ -1,0 +1,34 @@
+{
+    "family": "sports-api-task",
+    "networkMode": "awsvpc",
+    "cpu": "256",
+    "memory": "512",
+    "executionRoleArn": "arn:aws:iam::128724583202:role/ecsTaskExecutionRole",
+    "taskRoleArn": "arn:aws:iam::128724583202:role/ecsTaskExecutionRole",
+    "runtimePlatform": {
+        "operatingSystemFamily": "LINUX"
+    },
+    "requiresCompatibilities": [ 
+        "FARGATE" 
+    ],
+    "containerDefinitions": [
+        {
+            "name": "sports-api-container",
+            "image": "128724583202.dkr.ecr.us-east-1.amazonaws.com/sports-api:sports-api-latest",
+            "essential": true,
+            "environment": [
+                {
+                "name": "SPORTS_API_KEY",
+                "value": "adbe4dee2a4cc087cc819e09895308b4d37a3bee916cac6074c17f3065141765"
+                }
+            ],
+            "portMappings": [ 
+                { 
+                "containerPort": 8080,
+                "hostPort": 8080,
+                "protocol": "http"
+                }
+            ]
+        }
+    ]
+}

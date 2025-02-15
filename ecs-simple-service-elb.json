@@ -1,0 +1,22 @@
+{
+    "cluster": "sports-api-cluster",
+    "serviceName": "sports-api-service",
+    "taskDefinition": "arn:aws:ecs:us-east-1:128724583202:task-definition/sports-api-task:37",
+    "launchType": "FARGATE",
+    "desiredCount": 2,
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": ["subnet-974651cb", "subnet-ced1daa9"],
+            "securityGroups": ["sg-0016f12d747be3101"],
+            "assignPublicIp": "ENABLED"
+        }
+    },
+    "loadBalancers": [
+        {
+            "targetGroupArn": "arn:aws:elasticloadbalancing:us-east-1:128724583202:targetgroup/sports-api-TG/5ffc7d26979e78d7",
+            "containerName": "sports-api-container",
+            "containerPort": 8080
+        }
+    ]
+    
+}
